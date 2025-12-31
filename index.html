@@ -1,12 +1,377 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Digital Allies</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Allies - Digital Solutions for the Real World.</title>
+    <meta name="description" content="Offering IT consulting, web design, branding, ongoing maintenance and training to empower small businesses in Kingman">
+    <meta name="keywords" content="Web Design Kingman AZ, Digital Marketing, Accessibility, Bilingual Websites, Small Business SEO, AI optimization, Digital Allies">
+    <meta name="author" content="Digital Allies">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://digitalallies.net/">
+    <meta property="og:title" content="Digital Allies - Digital Solutions for the Real World">
+    <meta property="og:description" content="Helping small businesses thrive with accessible, beautiful web solutions that connect with your community.">
+    <meta property="og:image" content="https://digitalallies.net/assets/images/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://digitalallies.net/">
+    <meta property="twitter:title" content="Digital Allies - Digital Solutions for the Real World">
+    <meta property="twitter:description" content="Helping small businesses thrive with accessible, beautiful web solutions that connect with your community.">
+    <meta property="twitter:image" content="https://digitalallies.net/assets/images/og-image.jpg">
+    <link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="DA" />
+    <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+
+    <!-- Structured Data (Enhanced for AI Search) -->
+    <script type="application/ld+json">
+        [{
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Digital Allies",
+            "url": "https://digitalallies.net",
+            "logo": "https://digitalallies.net/assets/logo/digital-allies-logo-blue-gradient.svg",
+            "email": "contact@digitalallies.net",
+            "telephone": "928-228-5769",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Kingman",
+                "addressRegion": "AZ",
+                "addressCountry": "US"
+            },
+            "sameAs": [
+                "https://www.facebook.com/digitalallies",
+                "https://www.linkedin.com/company/digitalallies"
+            ],
+            "description": "Professional web development and digital solutions for businesses in Kingman, AZ and surrounding areas."
+        }, {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "Web Design and Development",
+            "provider": {
+                "@type": "Organization",
+                "name": "Digital Allies"
+            },
+            "areaServed": {
+                "@type": "City",
+                "name": "Kingman"
+            },
+            "description": "Custom, accessible, and bilingual website design and development services."
+        }, {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Digital Allies",
+            "url": "https://digitalallies.net",
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://digitalallies.net/search?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+            }
+        }]
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9HVGNEKE8R"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-9HVGNEKE8R');
+    </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fade-up {
+            animation: fadeUp 0.6s ease-out forwards;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.1s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.3s;
+        }
+        
+        .glass-nav {
+            background: rgba(2, 6, 23, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(30, 41, 59, 1);
+        }
+        
+        .selection-blue::selection {
+            background-color: rgba(59, 130, 246, 0.3);
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Custom scrollbar */
+        
+         ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+         ::-webkit-scrollbar-track {
+            background: #020617;
+        }
+        
+         ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        
+         ::-webkit-scrollbar-thumb:hover {
+            background: #334155;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-slate-950 text-slate-100 font-sans selection-blue overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent py-5">
+        <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <!-- Header Logo (Default) -->
+                <img src="assets/logo/digital-allies-logo-default.svg" alt="Digital Allies Logo" class="h-10 w-auto transition-transform group-hover:scale-105" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                <!-- Fallback Icon if Image Fails -->
+                <div style="display:none" class="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl items-center justify-center shadow-lg shadow-blue-500/20 group-hover:scale-110 transition-transform">
+                    <i data-lucide="heart" class="w-6 h-6 text-white fill-white/20"></i>
+                </div>
+            </a>
+
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#vision" class="text-sm font-medium text-slate-400 hover:text-white transition-colors">Vision</a>
+                <a href="#services" class="text-sm font-medium text-slate-400 hover:text-white transition-colors">Services</a>
+                <button class="px-5 py-2.5 bg-white text-slate-950 rounded-full text-sm font-semibold hover:bg-blue-50 transition-all active:scale-95 shadow-xl shadow-white/10">
+          Get Started
+        </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="vision" class="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
+        <!-- Background Glows -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-6xl h-full pointer-events-none opacity-20">
+            <div class="absolute top-[-10%] left-[-10%] w-1/2 h-1/2 bg-blue-600 rounded-full blur-[120px]"></div>
+            <div class="absolute bottom-[-10%] right-[-10%] w-1/2 h-1/2 bg-indigo-600 rounded-full blur-[120px]"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 relative z-10 text-center md:text-left">
+            <div class="max-w-3xl">
+                <div class="animate-fade-up opacity-0 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-widest mb-6">
+                    <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                    </span>
+                    Digital Allies V2 • Coming Soon
+                </div>
+
+                <h1 class="animate-fade-up opacity-0 delay-1 text-5xl md:text-7xl font-extrabold leading-[1.1] mb-8">
+                    Your Digital Success, <br />
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400">
+            Managed with Care.
+          </span>
+                </h1>
+
+                <p class="animate-fade-up opacity-0 delay-2 text-lg md:text-xl text-slate-400 leading-relaxed mb-10 max-w-2xl">
+                    We are fine-tuning our new digital home. Digital Allies provides premium software advocacy, strategic consulting, and modern development for brands that want an ally, not just a vendor.
+                </p>
+
+                <div class="animate-fade-up opacity-0 delay-3 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <button class="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-2xl font-bold transition-all flex items-center justify-center gap-2 group shadow-2xl shadow-blue-600/20">
+            Join the Waitlist
+            <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+          </button>
+                    <button class="px-8 py-4 bg-slate-900 hover:bg-slate-800 border border-slate-800 text-white rounded-2xl font-bold transition-all">
+            Learn our Approach
+          </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section id="services" class="py-24 bg-slate-900/50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-blue-500 font-bold uppercase tracking-[0.2em] text-xs mb-4 block">Business to Business
+          Service</span>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Core Expertise</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">Providing a comprehensive suite of digital solutions designed to empower modern brands.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Service 1: Website Design -->
+                <div class="p-8 rounded-3xl bg-slate-950 border border-slate-800 hover:border-blue-500/50 transition-all hover:-translate-y-1 group">
+                    <div class="w-12 h-12 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-400 mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="monitor" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Website Design</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Creating immersive, high-converting digital experiences tailored to your brand's unique identity.
+                    </p>
+                </div>
+                <!-- Service 2: Web Hosting -->
+                <div class="p-8 rounded-3xl bg-slate-950 border border-slate-800 hover:border-blue-500/50 transition-all hover:-translate-y-1 group">
+                    <div class="w-12 h-12 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-400 mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="server" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Web Hosting</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Secure, lightning-fast hosting solutions with 99.9% uptime and proactive maintenance.
+                    </p>
+                </div>
+                <!-- Service 3: AI Consulting -->
+                <div class="p-8 rounded-3xl bg-slate-950 border border-slate-800 hover:border-blue-500/50 transition-all hover:-translate-y-1 group">
+                    <div class="w-12 h-12 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-400 mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="cpu" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">AI Consulting</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Strategic guidance on integrating Artificial Intelligence to automate workflows and drive innovation.
+                    </p>
+                </div>
+                <!-- Service 4: Technology Consulting -->
+                <div class="p-8 rounded-3xl bg-slate-950 border border-slate-800 hover:border-blue-500/50 transition-all hover:-translate-y-1 group">
+                    <div class="w-12 h-12 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-400 mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="settings" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Technology Consulting</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Deep technical audits and roadmap planning to align your tech stack with business goals.
+                    </p>
+                </div>
+                <!-- Service 5: Brand Discovery -->
+                <div class="p-8 rounded-3xl bg-slate-950 border border-slate-800 hover:border-blue-500/50 transition-all hover:-translate-y-1 group">
+                    <div class="w-12 h-12 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-400 mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="compass" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Brand Discovery</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Defining your voice and visual language through research-driven workshops and creative sessions.
+                    </p>
+                </div>
+                <!-- Service 6: Graphic Design -->
+                <div class="p-8 rounded-3xl bg-slate-950 border border-slate-800 hover:border-blue-500/50 transition-all hover:-translate-y-1 group">
+                    <div class="w-12 h-12 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-400 mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="palette" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Graphic Design</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        High-end visual assets from branding materials to digital content that command attention.
+                    </p>
+                </div>
+                <!-- Service 7: AEO & SEO Consulting -->
+                <div class="p-8 rounded-3xl bg-slate-950 border border-slate-800 hover:border-blue-500/50 transition-all hover:-translate-y-1 group">
+                    <div class="w-12 h-12 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-400 mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="trending-up" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">AEO & SEO Consulting</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Optimizing for traditional search and AI engine results to ensure maximum digital visibility.
+                    </p>
+                </div>
+                <!-- Service 8: Training & Support -->
+                <div class="p-8 rounded-3xl bg-slate-950 border border-slate-800 hover:border-blue-500/50 transition-all hover:-translate-y-1 group">
+                    <div class="w-12 h-12 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-400 mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="life-buoy" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Training & Support</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Ongoing technical assistance and team training to keep your operations running smoothly.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-20 border-t border-slate-900 bg-slate-950">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-10">
+            <div class="flex flex-col items-center md:items-start text-center md:text-left">
+                <div class="flex items-center gap-2 mb-6">
+                    <!-- Footer Logo (White/Footer Variant) -->
+                    <img src="assets/logo/digital-allies-logo-footer.svg" alt="Digital Allies" class="h-8 w-auto" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                    <span style="display:none" class="font-bold text-lg">Digital Allies</span>
+                </div>
+                <p class="text-sm text-slate-500 max-w-xs">
+                    Building lasting digital partnerships through transparency, technical excellence, and proactive advocacy.
+                </p>
+            </div>
+
+            <div class="flex gap-6">
+                <!-- Facebook -->
+                <a href="https://www.facebook.com/digitalallies" target="_blank" rel="noopener noreferrer" class="p-3 bg-slate-900 rounded-full text-slate-400 hover:text-blue-400 hover:bg-slate-800 transition-all border border-slate-800">
+                    <i data-lucide="facebook" class="w-5 h-5"></i>
+                </a>
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/the_digital_allies/" target="_blank" rel="noopener noreferrer" class="p-3 bg-slate-900 rounded-full text-slate-400 hover:text-blue-400 hover:bg-slate-800 transition-all border border-slate-800">
+                    <i data-lucide="instagram" class="w-5 h-5"></i>
+                </a>
+                <!-- LinkedIn (Placeholder if needed, or Mail) -->
+                <a href="mailto:contact@digitalallies.net" class="p-3 bg-slate-900 rounded-full text-slate-400 hover:text-blue-400 hover:bg-slate-800 transition-all border border-slate-800">
+                    <i data-lucide="mail" class="w-5 h-5"></i>
+                </a>
+            </div>
+
+            <div class="text-center md:text-right">
+                <p class="text-xs text-slate-600 font-medium mb-1">
+                    © 2026 Digital Allies. All rights reserved.
+                </p>
+                <p class="text-[10px] text-slate-800 uppercase tracking-widest">
+                    Business to Business Services
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Navbar Scroll Logic
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.remove('bg-transparent', 'py-5');
+                navbar.classList.add('glass-nav', 'py-3');
+            } else {
+                navbar.classList.add('bg-transparent', 'py-5');
+                navbar.classList.remove('glass-nav', 'py-3');
+            }
+        });
+    </script>
+</body>
+
 </html>
