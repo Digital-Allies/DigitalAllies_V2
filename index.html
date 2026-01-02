@@ -165,7 +165,7 @@
         /* Responsive Iframe Container */
         .video-container {
             position: relative;
-            padding-bottom: 76.25%; /* 427/560 aspect ratio */
+            padding-bottom: 221.35%; /* Updated aspect ratio for vertical Reel (591/267) */
             height: 0;
             overflow: hidden;
             width: 100%;
@@ -252,9 +252,10 @@
                 </div>
 
                 <div class="animate-fade-up opacity-0 delay-3 w-full flex justify-center lg:justify-end">
-                    <div class="w-full max-w-[560px] bg-slate-900/50 rounded-3xl overflow-hidden shadow-2xl border border-slate-800 p-2 backdrop-blur-sm">
+                    <!-- Adjusted max-width to 300px to better fit the vertical Reel format -->
+                    <div class="w-full max-w-[300px] bg-slate-900/50 rounded-3xl overflow-hidden shadow-2xl border border-slate-800 p-2 backdrop-blur-sm">
                         <div class="video-container rounded-2xl">
-                            <iframe src="https://www.facebook.com/plugins/video.php?height=312&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1997064937880398%2F&show_text=true&width=560&t=0" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                            <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F2447027949062170%2F&show_text=true&width=267&t=0" width="267" height="591" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
                         </div>
                     </div>
                 </div>
@@ -443,9 +444,19 @@
                     <img src="assets/logo/digital-allies-logo-footer.svg" alt="Digital Allies" class="h-8 w-auto" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
                     <span style="display:none" class="font-bold text-lg text-white">Digital Allies</span>
                 </div>
-                <p class="text-sm text-white max-w-xs opacity-90">
+                <p class="text-sm text-white max-w-xs opacity-90 mb-6">
                     We believe in honest work, clear results, and fair access to digital tools for all business, no matter the size. 
                 </p>
+                
+                <!-- Added Contact Info -->
+                <div class="flex flex-col gap-3">
+                    <a href="tel:9282285769" class="text-slate-400 hover:text-white transition-colors text-sm font-medium flex items-center gap-2">
+                        <i data-lucide="phone" class="w-4 h-4 text-blue-500"></i> (928) 228-5769
+                    </a>
+                    <a href="mailto:contact@digitalallies.net" class="text-slate-400 hover:text-white transition-colors text-sm font-medium flex items-center gap-2">
+                        <i data-lucide="mail" class="w-4 h-4 text-blue-500"></i> contact@digitalallies.net
+                    </a>
+                </div>
             </div>
 
             <div class="flex gap-6">
