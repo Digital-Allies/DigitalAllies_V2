@@ -1,17 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="200" height="40" viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="defaultGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#6a77f8;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#99a3f6;stop-opacity:1" />
-    </linearGradient>
     <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#a7aff6;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#cfd4fb;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="greenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#dfezfd;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#99a3f6;stop-opacity:1" />
     </linearGradient>
     <style>
       @keyframes pulse {
@@ -34,4 +26,3 @@
     Digital Allies
   </text>
 </svg>
-
