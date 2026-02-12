@@ -1,0 +1,715 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Digital Allies - Design System &amp; Brand Guidelines</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="28afc742-b9f7-81a8-8f01-e9840c1f6b95" class="page sans"><header><h1 class="page-title" dir="auto">Digital Allies - Design System &amp; Brand Guidelines</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>Chatbot Ready</th><td><span class="selected-value select-value-color-green">No</span></td></tr><tr class="property-row property-row-relation"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/layers_gray.svg" style="width:14px;height:14px;display:block"/></span>Class</th><td><a href="Digital%20Allies%20-%20Design%2028afc742b9f78129b010eefb2252cec7.html"><img class="icon notion-static-icon" src="https://www.notion.so/icons/color-palette_blue.svg"/>Digital Allies - Design</a></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/user_gray.svg" style="width:14px;height:14px;display:block"/></span>Author</th><td><span class="selected-value select-value-color-gray">Anthony Cassella</span></td></tr><tr class="property-row property-row-last_edited_time"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/clock_gray.svg" style="width:14px;height:14px;display:block"/></span>Last edited</th><td><time>@November 11, 2025 4:23 PM</time></td></tr><tr class="property-row property-row-created_by"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/user-circle_gray.svg" style="width:14px;height:14px;display:block"/></span>Created by</th><td><span class="user"><img src="Untitled_(800_x_800_px).png" class="icon user-icon"/>Code Unicorn LLC</span></td></tr><tr class="property-row property-row-url"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/link_gray.svg" style="width:14px;height:14px;display:block"/></span>Source</th><td><a href="https://github.com/cassellac/DigitalAllies_" class="url-value">https://github.com/cassellac/DigitalAllies_</a></td></tr><tr class="property-row property-row-status"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>Status</th><td><span class="status-value select-value-color-pink"><div class="status-dot status-dot-color-pink"></div>New</span></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>Entry Type</th><td><span class="selected-value select-value-color-purple">Reference</span></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>Completeness</th><td><span class="selected-value select-value-color-green">Complete</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Content Type</th><td><span class="selected-value select-value-color-blue">Technical Docs</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Keywords</th><td><span class="selected-value select-value-color-purple">Design</span></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>Priority</th><td><span class="selected-value select-value-color-orange">High</span></td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><h2 id="8194fe64-4f75-456a-a4c7-edcd75ba54bb" class="">Color Palette </h2></div><div style="display:contents" dir="auto"><p id="cddad105-9029-40bb-bdba-4bf4833fa59b" class=""><strong>Primary Blue</strong>: <code>#2563ec</code> - Main brand color for CTAs and links</p></div><div style="display:contents" dir="auto"><p id="d968ffd4-bb06-4227-bdde-9d842777a4cc" class=""><strong>Success Green</strong>: <code>#059669</code> - Accent for success states</p></div><div style="display:contents" dir="auto"><p id="cb61e00f-6ba9-42f8-9193-ee68b4af30d7" class=""><strong>Gray Dark</strong>: <code>#1e293b</code> - Text and headers</p></div><div style="display:contents" dir="auto"><p id="780f88a9-70e4-4145-851e-de0ea7e12d70" class=""><strong>Gray Medium</strong>: <code>#64748b</code> - Secondary text</p></div><div style="display:contents" dir="auto"><p id="515d2aa5-71cd-49de-9d7e-bb5d6757b604" class=""><strong>Pale Blue</strong>: <code>#dbeafe</code> - Backgrounds</p></div><div style="display:contents" dir="auto"><h2 id="304f8530-db76-4d47-ab54-d0e8a1b11cda" class="">Typography</h2></div><div style="display:contents" dir="auto"><p id="4b29b8a0-03b6-4d69-a940-5353ee82acb3" class=""><strong>Primary</strong>: System font stack (Segoe UI, Arial, sans-serif)</p></div><div style="display:contents" dir="auto"><p id="d1363ce1-d6c1-4712-abd4-6eb9d69c99c4" class=""><strong>Secondary</strong>: Source Sans Pro for body text</p></div><div style="display:contents" dir="auto"><p id="f964b503-44a2-4f31-bd9b-72e16f131085" class=""><strong>Weights</strong>: 400 (Regular), 500 (Medium), 600 (Semibold), 700 (Bold)</p></div><div style="display:contents" dir="auto"><h2 id="07d4029d-1a09-4a64-8c9f-82d07faf945a" class="">UI Components</h2></div><div style="display:contents" dir="auto"><p id="0938ce21-8d59-406e-92ca-c129c11fd395" class=""><strong>Cards</strong>: Elevated containers with hover effects</p></div><div style="display:contents" dir="auto"><p id="a775c9d1-0311-4b68-afae-e84a46b53df5" class=""><strong>Buttons</strong>: Primary, secondary, and ghost variants</p></div><div style="display:contents" dir="auto"><p id="9711c8ec-da4d-4d1f-9798-f66c87ef440b" class=""><strong>Navigation</strong>: Sticky header, mobile-responsive</p></div><div style="display:contents" dir="auto"><p id="5d647708-79ef-4cf7-9fbf-43533a381f82" class=""><strong>Forms</strong>: Accessible controls with validation</p></div><div style="display:contents" dir="auto"><p id="2a8fc742-b9f7-8012-b6d6-cd4df30ba4a3" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2a8fc742-b9f7-801a-8234-df22e8cb1f5f" class="">To be added later: </p></div><div style="display:contents" dir="auto"><p id="2a8fc742-b9f7-8032-9c8e-c834d2ff14e4" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-8005-a2f8-c38d1ef1a0ea" class="bulleted-list"><li style="list-style-type:disc">Primary Blue: <mark class="highlight-blue"><mark class="highlight-default_background"><code><strong>#2563ec</strong></code></mark></mark></li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-8032-91af-f7e071040dcf" class="bulleted-list"><li style="list-style-type:disc">Success Green: <mark class="highlight-teal"><mark class="highlight-default_background"><code><strong>#059669</strong></code></mark></mark></li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-8025-9540-e2d1eb2c0f8c" class="bulleted-list"><li style="list-style-type:disc">Gray Dark: <mark class="highlight-gray"><code><strong>#1e293b</strong></code></mark></li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-801e-bd0e-e60ebdfe82b2" class="bulleted-list"><li style="list-style-type:disc">Gray Medium: <mark class="highlight-purple"><code><strong>#64748b</strong></code></mark></li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-8079-8f9e-d42ea8c0100d" class="bulleted-list"><li style="list-style-type:disc">Pale Blue: <mark class="highlight-blue"><code><strong>#dbeafe</strong></code></mark></li></ul></div><div style="display:contents" dir="auto"><p id="2a8fc742-b9f7-80f4-b750-ffc9d5ec3729" class="">Typography</p></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-806a-8b02-c47d1d232d54" class="bulleted-list"><li style="list-style-type:disc">Primary: Segoe UI / system stack</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-80bf-ab46-dc4731706a71" class="bulleted-list"><li style="list-style-type:disc">Secondary: Roboto for body</li></ul></div><div style="display:contents" dir="auto"><h1 id="2a8fc742-b9f7-8049-8f92-f4e6a5ae72bb" class="">Digital Allies Brand Guidelines</h1></div><div style="display:contents" dir="auto"><h2 id="2a8fc742-b9f7-8077-83bf-ff7a1d8ed127" class="">Brand Overview</h2></div><div style="display:contents" dir="auto"><p id="2a8fc742-b9f7-802d-b014-ec9e567037b7" class="">Digital Allies is dedicated to empowering businesses and communities through accessible,<br/>high-quality digital solutions. We believe in making technology work for everyone.</p></div><div style="display:contents" dir="auto"><h2 id="2a8fc742-b9f7-8031-a34c-c69f565d4da1" class="">Brand Values</h2></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-806b-af85-d0cf0d469948" class="bulleted-list"><li style="list-style-type:disc"><strong>Approachable</strong>: We make complex technology simple and accessible</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-808c-8e87-e410f1475e9d" class="bulleted-list"><li style="list-style-type:disc"><strong>Empowering</strong>: We give businesses the tools to succeed online</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-80a0-b6fe-c3275c21ffe1" class="bulleted-list"><li style="list-style-type:disc"><strong>Community-Focused</strong>: We build lasting relationships and support local communities</li></ul></div><div style="display:contents" dir="auto"><h2 id="2a8fc742-b9f7-804a-9c5d-fd02d83357a0" class="">Color Palette</h2></div><div style="display:contents" dir="auto"><h3 id="2a8fc742-b9f7-80f7-a86a-c41cd7ac8ab4" class="">Primary Colors</h3></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-80aa-befe-e24c2e200a8c" class="bulleted-list"><li style="list-style-type:disc">Primary Blue: #2563EB - Primary brand color, CTAs, links</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-8039-a87b-e4595662d459" class="bulleted-list"><li style="list-style-type:disc">Success Green: #059669 - Success messages, positive actions</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-8078-a6f7-c3c5cc718cc0" class="bulleted-list"><li style="list-style-type:disc">Alert Red: #EF4444 - Important alerts, error states</li></ul></div><div style="display:contents" dir="auto"><h3 id="2a8fc742-b9f7-8042-a4bd-d53213151ae9" class="">Secondary Colors</h3></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-8045-b5b8-c8380f5b0cbf" class="bulleted-list"><li style="list-style-type:disc">Light Blue: #DBEAFE - Background accents, hover states</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-8078-9a01-d473ac254b72" class="bulleted-list"><li style="list-style-type:disc">Light Green: #D1FAE5 - Success backgrounds</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-8066-855d-e3123153eb3a" class="bulleted-list"><li style="list-style-type:disc">Dark Gray: #414243 - Secondary text, borders</li></ul></div><div style="display:contents" dir="auto"><h3 id="2a8fc742-b9f7-80bf-8d18-fc399b89c519" class="">Gradients</h3></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-8079-a157-e3f1b67e56dd" class="bulleted-list"><li style="list-style-type:disc">Primary: linear-gradient(135deg, #2563EB, #059669)</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-800d-ad9c-ff8769695586" class="bulleted-list"><li style="list-style-type:disc">Blue: linear-gradient(135deg, #438eff, #2563eb)</li></ul></div><div style="display:contents" dir="auto"><h2 id="2a8fc742-b9f7-8000-824e-e50f1f653d0b" class="">Typography</h2></div><div style="display:contents" dir="auto"><h3 id="2a8fc742-b9f7-80d5-9b85-e68c308350f6" class="">Font Families</h3></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-80ca-9f0c-ef7f580d6ef7" class="bulleted-list"><li style="list-style-type:disc">Primary: Segoe UI (Headlines, body text)</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-8085-8b6f-ef5b9a5eff94" class="bulleted-list"><li style="list-style-type:disc">Secondary: Source Sans Pro (Subsections, small text)</li></ul></div><div style="display:contents" dir="auto"><h3 id="2a8fc742-b9f7-800e-b70d-e793423ba6f3" class="">Typography Scale</h3></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-80d9-ba9b-cf061dc7d7e7" class="bulleted-list"><li style="list-style-type:disc">H1 Hero: 48px, Black (900)</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-80bb-9e50-fee16ec29731" class="bulleted-list"><li style="list-style-type:disc">H2 Section: 36px, Semibold (600)</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-80e7-9b01-c5a5916d30d4" class="bulleted-list"><li style="list-style-type:disc">H3 Subsection: 24px, Regular (400)</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-806e-bb17-da1f4a89ac26" class="bulleted-list"><li style="list-style-type:disc">Body: 18px, Regular (400)</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-80b5-a9fc-f5be31d13f2e" class="bulleted-list"><li style="list-style-type:disc">Small: 14px, Regular (400)</li></ul></div><div style="display:contents" dir="auto"><h2 id="2a8fc742-b9f7-80f6-a187-fc749213d553" class="">Logo Usage</h2></div><div style="display:contents" dir="auto"><h3 id="2a8fc742-b9f7-809a-9c7d-e1e16209481d" class="">Specifications</h3></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-80fb-ba47-fc331d73b8fb" class="bulleted-list"><li style="list-style-type:disc">Minimum size: 100px width (horizontal), 48px height (stacked)</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-80d1-9bdc-e9736a15fbd8" class="bulleted-list"><li style="list-style-type:disc">Clear space: Equal to dot diameter around logo</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-80b5-b942-c21ad07b92de" class="bulleted-list"><li style="list-style-type:disc">File formats: SVG (preferred), PNG with transparency</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-8032-80c1-e16f4326468e" class="bulleted-list"><li style="list-style-type:disc">Backgrounds: Works on white, light colors, or transparent</li></ul></div><div style="display:contents" dir="auto"><h3 id="2a8fc742-b9f7-8043-a58b-cc006e7774ce" class="">Variants</h3></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-80ce-bd74-fe628932336c" class="bulleted-list"><li style="list-style-type:disc">Default: Blue-to-green gradient with animated pulsing dot</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-8057-a97e-d4b4463365b6" class="bulleted-list"><li style="list-style-type:disc">White: For dark backgrounds</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-8049-a7b2-cd3d9a13cdf5" class="bulleted-list"><li style="list-style-type:disc">Black: For light backgrounds</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-8032-8d9a-ca85433a673a" class="bulleted-list"><li style="list-style-type:disc">Offline: Red dot for offline/error states</li></ul></div><div style="display:contents" dir="auto"><h2 id="2a8fc742-b9f7-80fb-997b-e4af81bd3c9a" class="">Button Styles</h2></div><div style="display:contents" dir="auto"><h3 id="2a8fc742-b9f7-80d0-9dd3-eb9f7691b07f" class="">Primary Buttons</h3></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-80ca-ac0d-f156a0db4e98" class="bulleted-list"><li style="list-style-type:disc">Background: #2563EB</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-80b9-9d3d-e8fd6e4fba3e" class="bulleted-list"><li style="list-style-type:disc">Text: #FFFFFF</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-80d2-afcc-d3e0f747b04c" class="bulleted-list"><li style="list-style-type:disc">Hover: #1d4ed8</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-80cb-ba81-dbd3168cef98" class="bulleted-list"><li style="list-style-type:disc">Use for: Primary actions, CTAs</li></ul></div><div style="display:contents" dir="auto"><h3 id="2a8fc742-b9f7-80e6-bb1a-c3d09d056ac5" class="">Secondary Buttons</h3></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-80dd-882e-f8d650242c88" class="bulleted-list"><li style="list-style-type:disc">Border: #2563EB (2px)</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-80a1-83c9-e55b8d1f1329" class="bulleted-list"><li style="list-style-type:disc">Text: #2563EB</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-80b7-8727-f22da35b44e6" class="bulleted-list"><li style="list-style-type:disc">Hover: #DBEAFE background</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-804a-b2a6-de80e989ac22" class="bulleted-list"><li style="list-style-type:disc">Use for: Secondary actions</li></ul></div><div style="display:contents" dir="auto"><h3 id="2a8fc742-b9f7-8027-adf3-d1cdec964373" class="">Ghost Buttons</h3></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-80ad-baa3-d6a53ca6f11a" class="bulleted-list"><li style="list-style-type:disc">Text: #2563EB</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-8098-8d2b-f4c8ede1779d" class="bulleted-list"><li style="list-style-type:disc">Hover: #DBEAFE background</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-809d-b1e2-ecc93825cf73" class="bulleted-list"><li style="list-style-type:disc">Use for: Tertiary actions, navigation</li></ul></div><div style="display:contents" dir="auto"><h2 id="2a8fc742-b9f7-804c-8af4-d0e8fc3f24a3" class="">Brand Voice</h2></div><div style="display:contents" dir="auto"><h3 id="2a8fc742-b9f7-803e-9a94-c2bba906408f" class="">English</h3></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-806c-a87c-cf3d88349c3d" class="bulleted-list"><li style="list-style-type:disc">Approachable and friendly</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-8021-a8a9-c4ebaf2c9bd4" class="bulleted-list"><li style="list-style-type:disc">Clear and jargon-free</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-801d-b5b4-f33c46d9fe8e" class="bulleted-list"><li style="list-style-type:disc">Empowering and supportive</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-8025-9ad5-ca4072387012" class="bulleted-list"><li style="list-style-type:disc">Community-focused</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-8016-b7f4-e5b899671007" class="bulleted-list"><li style="list-style-type:disc">Professional yet personal</li></ul></div><div style="display:contents" dir="auto"><p id="2a8fc742-b9f7-8061-8764-dc58bdd0bf08" class="">Example: &quot;Let&#x27;s get your business online&quot; <br/>Avoid: &quot;We provide digital solutions&quot; </p></div><div style="display:contents" dir="auto"><h3 id="2a8fc742-b9f7-8039-aaf0-d3ea5e9571d3" class="">Spanish (Español)</h3></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-8073-a3f6-dfd5835d357e" class="bulleted-list"><li style="list-style-type:disc">Respetuosa y culturalmente consciente</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-80e9-91d4-fff9f41d23ba" class="bulleted-list"><li style="list-style-type:disc"> cã¡linda y acogedora</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-809c-95ff-feddfb3bf92b" class="bulleted-list"><li style="list-style-type:disc">Enfocada en familia y negocio</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-80b7-857f-f8c6062a4a15" class="bulleted-list"><li style="list-style-type:disc">Clara y accesible</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-80e4-a1c8-d8456536d6ec" class="bulleted-list"><li style="list-style-type:disc">Orientada a la comunidad</li></ul></div><div style="display:contents" dir="auto"><p id="2a8fc742-b9f7-80f9-b5e5-ce63abb49f7c" class="">Ejemplo: &quot;<strong>Estamos aquí para ayudarte</strong>&quot; <br/>Evitar: &quot;Proporcionamos soluciones digitales corporativas&quot; </p></div><div style="display:contents" dir="auto"><h2 id="2a8fc742-b9f7-80c8-9ee5-e3d34cfffab8" class="">Icon Guidelines</h2></div><div style="display:contents" dir="auto"><h3 id="2a8fc742-b9f7-80d3-965f-d63dc7096384" class="">Usage</h3></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-8094-ac16-eaa815fda410" class="bulleted-list"><li style="list-style-type:disc">Minimum size: 24px for UI, 48px for features</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-8078-9082-d16a0fe94ab8" class="bulleted-list"><li style="list-style-type:disc">Colors: Blue (#2563EB), Green (#059669), Red (#EF4444)</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-806a-944f-d958a8c79e10" class="bulleted-list"><li style="list-style-type:disc">Spacing: Minimum 8px padding around icons</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-80dc-9e76-cfda2e755c62" class="bulleted-list"><li style="list-style-type:disc">Style consistency: Use same style throughout design</li></ul></div><div style="display:contents" dir="auto"><h3 id="2a8fc742-b9f7-807d-a6d9-eabd1cb3e591" class="">Available Icons</h3></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-8080-b046-cc9df38aea87" class="bulleted-list"><li style="list-style-type:disc">Web &amp; Global</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-8045-945f-de009d018607" class="bulleted-list"><li style="list-style-type:disc">Design &amp; Art</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-8069-af1d-e41e0c5ab4a7" class="bulleted-list"><li style="list-style-type:disc">Consulting</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-804d-98ab-e138dd9a7d12" class="bulleted-list"><li style="list-style-type:disc">Cloud Services</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-8099-b0d5-c76fa2cb0142" class="bulleted-list"><li style="list-style-type:disc">Community</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-800c-b2a3-ed5c9eef20c8" class="bulleted-list"><li style="list-style-type:disc">Grid Organization</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-8012-96fb-dd580454d313" class="bulleted-list"><li style="list-style-type:disc">Lightbulb (Ideas)</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-80a0-9e63-cfe09770b94a" class="bulleted-list"><li style="list-style-type:disc">SEO (Search)</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-80cd-b19d-f1941e3b119a" class="bulleted-list"><li style="list-style-type:disc">Communication</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-80e1-8039-f073c5eb31cb" class="bulleted-list"><li style="list-style-type:disc">Blog (Content)</li></ul></div><div style="display:contents" dir="auto"><h2 id="2a8fc742-b9f7-8084-9bfb-eec8412f8f57" class="">Accessibility</h2></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-80f6-84a9-c84a154374b5" class="bulleted-list"><li style="list-style-type:disc">Maintain WCAG AA standards</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-80ad-866e-c1e0c9cee2c3" class="bulleted-list"><li style="list-style-type:disc">Minimum contrast: 4.5:1 for body text, 3:1 for large text</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-8004-a004-e64e85aa8a15" class="bulleted-list"><li style="list-style-type:disc">Touch targets: Minimum 44x44px</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-8020-a6a3-e4a419b2b258" class="bulleted-list"><li style="list-style-type:disc">Clear focus indicators on interactive elements</li></ul></div><div style="display:contents" dir="auto"><ul id="2a8fc742-b9f7-80ef-a0af-f875184813e1" class="bulleted-list"><li style="list-style-type:disc">Alt text for all images</li></ul></div><div style="display:contents" dir="auto"><h2 id="2a8fc742-b9f7-80f8-a870-fc0bb70107fb" class="">Contact</h2></div><div style="display:contents" dir="auto"><p id="2a8fc742-b9f7-802d-bee2-f63a56b7de4c" class="">For questions about brand usage:<br/><a href="mailto:brand@digitalallies.net">brand@digitalallies.net</a></p></div><div style="display:contents" dir="auto"><hr id="2a8fc742-b9f7-806b-9369-e78f149f3e9f"/></div><div style="display:contents" dir="auto"><p id="2a8fc742-b9f7-8023-a442-d6e6616f7a7b" class="">Digital Allies Brand Guidelines<br/>Last Updated: November 2025<br/>Version 2.0</p></div><div style="display:contents" dir="ltr"><figure id="2abfc742-b9f7-810d-b745-f68962b879f9" class="link-to-page"><a href="Brand%20Guidelines%20(developer)%202abfc742b9f7810db745f68962b879f9.html">Brand Guidelines (developer)</a></figure></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
