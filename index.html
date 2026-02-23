@@ -52,9 +52,9 @@
                     colors: {
                         'bone-white': '#F9F6F0',
                         'gray-dark': '#2D2D2D',
-                        'primary-blue': '#438eff',
+                        'primary-blue': '#3A7BD5',
                         'light-pink': '#FADEEB',
-                        'signal-red': '#D9381E'
+                        'signal-red': '#C5301A'
                     },
                     fontFamily: {
                         headers: ['"Lexend Deca"', 'sans-serif'],
@@ -186,9 +186,15 @@
 
         /* Form focus ring */
         .form-field:focus {
-            border-color: #438eff;
+            border-color: #3A7BD5;
             outline: none;
-            box-shadow: 0 0 0 2px rgba(67, 142, 255, 0.15);
+            box-shadow: 0 0 0 2px rgba(58, 123, 213, 0.15);
+        }
+
+        /* Placeholder contrast fix */
+        input::placeholder,
+        textarea::placeholder {
+            color: #777;
         }
     </style>
 </head>
@@ -221,7 +227,7 @@
                         data-es="Servicios">Services</a>
                     <a href="#pricing" class="hover:text-primary-blue transition" data-en="Pricing"
                         data-es="Precios">Pricing</a>
-                    <a href="#field-reports" class="hover:text-primary-blue transition" data-en="Reviews"
+                    <a href="#field-notes" class="hover:text-primary-blue transition" data-en="Reviews"
                         data-es="Reseñas">Reviews</a>
                     <a href="#faq" class="hover:text-primary-blue transition" data-en="FAQ" data-es="FAQ">FAQ</a>
                     <a href="#contact" class="hover:text-primary-blue transition" data-en="Contact"
@@ -388,17 +394,35 @@
         <div class="text-center mb-16">
             <h2 id="depts-heading" class="font-headers text-4xl font-bold mb-3" data-en="The Departments"
                 data-es="Los Departamentos">The Departments</h2>
-            <p class="text-sm" data-en="Three distinct operations. One point of contact."
-                data-es="Tres operaciones distintas. Un punto de contacto.">
-                Three distinct operations. One point of contact.
+            <p class="text-sm" data-en="Four distinct operations. One point of contact."
+                data-es="Cuatro operaciones distintas. Un punto de contacto.">
+                Four distinct operations. One point of contact.
             </p>
         </div>
 
-        <div class="grid md:grid-cols-3 structural-border overflow-hidden">
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 structural-border overflow-hidden">
+
+            <!-- Design -->
+            <div
+                class="dept-card bg-bone-white p-10 text-center transition border-b lg:border-b-0 lg:border-r border-gray-dark">
+                <div class="flex justify-center mb-6">
+                    <i data-lucide="palette" class="w-16 h-16 text-gray-dark" aria-hidden="true"></i>
+                </div>
+                <h3 class="font-headers font-bold text-lg mb-1" data-en="The Design Bureau" data-es="El Buró de Diseño">
+                    The Design Bureau</h3>
+                <span class="block text-xs mb-5 text-signal-red font-bold tracking-widest uppercase"
+                    data-en="Design &amp; Brand" data-es="Diseño y Marca">Design &amp; Brand</span>
+                <p class="text-sm leading-relaxed"
+                    data-en="I design before I develop. Websites, graphic design, menus, signage, pitch decks &mdash; polished visuals that look like you meant it. Brand discovery included."
+                    data-es="Diseño antes de desarrollar. Sitios web, diseño gráfico, menús, señalización, presentaciones &mdash; visuales pulidos que parecen intencionales. Descubrimiento de marca incluido.">
+                    I design before I develop. Websites, graphic design, menus, signage, pitch decks &mdash; polished
+                    visuals that look like you meant it. Brand discovery included.
+                </p>
+            </div>
 
             <!-- Integrations -->
             <div
-                class="dept-card bg-bone-white p-10 text-center transition border-b md:border-b-0 md:border-r border-gray-dark">
+                class="dept-card bg-bone-white p-10 text-center transition border-b lg:border-b-0 lg:border-r border-gray-dark">
                 <div class="flex justify-center mb-6">
                     <img src="Integrations.svg" alt="" aria-hidden="true" class="w-20 h-20 object-contain"
                         style="background: transparent;">
@@ -417,7 +441,7 @@
 
             <!-- Automation -->
             <div
-                class="dept-card bg-bone-white p-10 text-center transition border-b md:border-b-0 md:border-r border-gray-dark">
+                class="dept-card bg-bone-white p-10 text-center transition border-b lg:border-b-0 lg:border-r border-gray-dark">
                 <div class="flex justify-center mb-6">
                     <img src="Automation.svg" alt="" aria-hidden="true" class="w-20 h-20 object-contain"
                         style="background: transparent;">
@@ -628,8 +652,11 @@
                         data-en="Hard Costs" data-es="Costos Fijos">Hard Costs</p>
                     <div class="space-y-0 text-sm">
                         <div class="price-row flex justify-between">
-                            <span data-en="Execution (Single Task)" data-es="Ejecución (Tarea Única)">Execution (Single
-                                Task)</span>
+                            <span data-en="Website Design" data-es="Diseño Web">Website Design</span>
+                            <span class="font-bold" data-en="From $100" data-es="Desde $100">From $100</span>
+                        </div>
+                        <div class="price-row flex justify-between pt-3">
+                            <span data-en="Graphic Design" data-es="Diseño Gráfico">Graphic Design</span>
                             <span class="font-bold" data-en="From $75" data-es="Desde $75">From $75</span>
                         </div>
                         <div class="price-row flex justify-between pt-3">
@@ -709,7 +736,8 @@
                     <h3 class="font-headers font-bold text-base mb-3" data-en="Direct Line" data-es="Línea Directa">
                         Direct Line</h3>
                     <p class="text-xs leading-relaxed">
-                        <a href="tel:9282285769" class="font-bold text-primary-blue hover:underline block mb-1">(928)
+                        <a href="tel:9282285769" class="font-bold hover:underline block mb-1"
+                            style="color: #3A7BD5;">(928)
                             228-5769</a>
                         <span
                             data-en="Call or text. No call center. No ticket queue. Just a real number that goes to one real person."
@@ -746,13 +774,13 @@
 
 
     <!-- ============================================================
-         THE ARCHIVE: FIELD REPORTS
+         THE ARCHIVE: FIELD NOTES
     ============================================================= -->
-    <section id="field-reports" class="max-w-7xl mx-auto px-6 py-20" aria-labelledby="testimonials-heading">
+    <section id="field-notes" class="max-w-7xl mx-auto px-6 py-20" aria-labelledby="testimonials-heading">
 
         <div class="text-center mb-16">
             <h2 id="testimonials-heading" class="font-headers text-4xl font-bold mb-3"
-                data-en="The Archive: Field Reports" data-es="El Archivo: Informes de Campo">The Archive: Field Reports
+                data-en="The Archive: Field Notes" data-es="El Archivo: Notas de Campo">The Archive: Field Notes
             </h2>
             <p class="text-sm" data-en="These are notes from real people. I keep them pinned."
                 data-es="Estas son notas de gente real. Las mantengo fijadas.">
@@ -838,11 +866,12 @@
                         class="text-primary-blue text-xl ml-4 flex-shrink-0 transition-transform group-open:rotate-45">+</span>
                 </summary>
                 <div class="px-6 pb-6 text-sm leading-relaxed border-t border-gray-dark/10 pt-4"
-                    data-en="I build, connect, and maintain technology for small businesses and nonprofits. That includes websites, automations, integrations between your apps, SEO/AEO audits, and ongoing tech support. Think of it as a one-person IT department — minus the jargon."
-                    data-es="Construyo, conecto y mantengo tecnología para pequeñas empresas y organizaciones sin fines de lucro. Eso incluye sitios web, automatizaciones, integraciones entre tus aplicaciones, auditorías SEO/AEO y soporte técnico continuo. Piénsalo como un departamento de TI de una sola persona — sin la jerga.">
-                    I build, connect, and maintain technology for small businesses and nonprofits. That includes
-                    websites, automations, integrations between your apps, SEO/AEO audits, and ongoing tech support.
-                    Think of it as a one-person IT department — minus the jargon.
+                    data-en="I design, build, connect, and maintain technology for small businesses and nonprofits. That starts with design — websites, brand identity, menus, signage, pitch decks, and graphic assets — then extends into development, automations, integrations between your apps, SEO/AEO audits, and ongoing tech support. Think of it as a design-forward consultancy that also handles the technical wiring."
+                    data-es="Diseño, construyo, conecto y mantengo tecnología para pequeñas empresas y organizaciones sin fines de lucro. Eso comienza con diseño — sitios web, identidad de marca, menús, señalización, presentaciones y recursos gráficos — y luego se extiende al desarrollo, automatizaciones, integraciones entre tus aplicaciones, auditorías SEO/AEO y soporte técnico continuo. Piénsalo como una consultoría orientada al diseño que también maneja el cableado técnico.">
+                    I design, build, connect, and maintain technology for small businesses and nonprofits. That starts
+                    with design — websites, brand identity, menus, signage, pitch decks, and graphic assets — then
+                    extends into development, automations, integrations between your apps, SEO/AEO audits, and ongoing
+                    tech support. Think of it as a design-forward consultancy that also handles the technical wiring.
                 </div>
             </details>
 
@@ -855,11 +884,11 @@
                         class="text-primary-blue text-xl ml-4 flex-shrink-0 transition-transform group-open:rotate-45">+</span>
                 </summary>
                 <div class="px-6 pb-6 text-sm leading-relaxed border-t border-gray-dark/10 pt-4"
-                    data-en="Yes. Tech consulting, AI consulting, brand discovery, and AEO/SEO reviews are all free. I do not charge for conversations or clarity. You only pay when I build something. All costs are quoted before work begins."
-                    data-es="Sí. La consultoría tecnológica, consultoría de IA, descubrimiento de marca y revisiones AEO/SEO son todas gratuitas. No cobro por conversaciones o claridad. Solo pagas cuando construyo algo. Todos los costos se cotizan antes de comenzar el trabajo.">
-                    Yes. Tech consulting, AI consulting, brand discovery, and AEO/SEO reviews are all free. I do not
-                    charge for conversations or clarity. You only pay when I build something. All costs are quoted
-                    before work begins.
+                    data-en="Yes. Tech consulting, AI consulting, brand discovery, design consultations, and AEO/SEO reviews are all free. I do not charge for conversations or clarity. You only pay when I design or build something. All costs are quoted before work begins."
+                    data-es="Sí. La consultoría tecnológica, consultoría de IA, descubrimiento de marca, consultas de diseño y revisiones AEO/SEO son todas gratuitas. No cobro por conversaciones o claridad. Solo pagas cuando diseño o construyo algo. Todos los costos se cotizan antes de comenzar el trabajo.">
+                    Yes. Tech consulting, AI consulting, brand discovery, design consultations, and AEO/SEO reviews are
+                    all free. I do not charge for conversations or clarity. You only pay when I design or build
+                    something. All costs are quoted before work begins.
                 </div>
             </details>
 
@@ -894,6 +923,25 @@
                     Absolutely. I am based in Kingman, Arizona, but most of the work I do is digital. I serve clients
                     locally and remotely. If you have an internet connection and a problem worth solving, we can work
                     together.
+                </div>
+            </details>
+
+            <details class="structural-border bg-bone-white group">
+                <summary
+                    class="p-6 cursor-pointer font-headers font-bold text-base flex justify-between items-center hover:bg-light-pink transition"
+                    data-en="Do you do design work or just development?"
+                    data-es="¿Haces trabajo de diseño o solo desarrollo?">
+                    Do you do design work or just development?
+                    <span
+                        class="text-primary-blue text-xl ml-4 flex-shrink-0 transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <div class="px-6 pb-6 text-sm leading-relaxed border-t border-gray-dark/10 pt-4"
+                    data-en="Design comes first. I build websites, brand identities, menus, signage, social graphics, pitch decks — polished print and digital visuals that look like you meant it. Brand discovery sessions are free. Once the visual direction is locked in, I develop the technology to match. Design-forward consultancy that also handles the technical wiring."
+                    data-es="El diseño viene primero. Construyo sitios web, identidades de marca, menús, señalización, gráficos para redes sociales, presentaciones — visuales pulidos de impresión y digitales que parecen intencionales. Las sesiones de descubrimiento de marca son gratuitas. Una vez que la dirección visual está definida, desarrollo la tecnología para que coincida. Consultoría orientada al diseño que también maneja el cableado técnico.">
+                    Design comes first. I build websites, brand identities, menus, signage, social graphics, pitch decks
+                    — polished print and digital visuals that look like you meant it. Brand discovery sessions are free.
+                    Once the visual direction is locked in, I develop the technology to match. Design-forward
+                    consultancy that also handles the technical wiring.
                 </div>
             </details>
 
@@ -966,17 +1014,17 @@
 
                 <div class="space-y-3 text-sm mb-10">
                     <p>
-                        <span class="text-white/45 uppercase text-xs tracking-widest mr-3" data-en="Location"
+                        <span class="text-white/60 uppercase text-xs tracking-widest mr-3" data-en="Location"
                             data-es="Ubicación">Location</span>
                         Kingman, Arizona
                     </p>
                     <p>
-                        <span class="text-white/45 uppercase text-xs tracking-widest mr-3" data-en="Direct Line"
+                        <span class="text-white/60 uppercase text-xs tracking-widest mr-3" data-en="Direct Line"
                             data-es="Línea Directa">Direct Line</span>
                         <a href="tel:9282285769" class="text-primary-blue hover:underline">(928) 228-5769</a>
                     </p>
                     <p>
-                        <span class="text-white/45 uppercase text-xs tracking-widest mr-3">Email</span>
+                        <span class="text-white/60 uppercase text-xs tracking-widest mr-3">Email</span>
                         <a href="mailto:contact@digitalallies.net"
                             class="text-primary-blue hover:underline">contact@digitalallies.net</a>
                     </p>
@@ -990,10 +1038,16 @@
                 </p>
 
                 <div class="mt-12 pt-6 border-t border-white/10">
-                    <p class="text-xs text-white/35" data-en="&copy; 2025 Digital Allies. Based in Kingman, AZ."
-                        data-es="&copy; 2025 Digital Allies. Con sede en Kingman, AZ.">
-                        &copy; 2025 Digital Allies. Based in Kingman, AZ.
+                    <p class="text-xs text-white/50" data-en="&copy; 2026 Digital Allies. Based in Kingman, AZ."
+                        data-es="&copy; 2026 Digital Allies. Con sede en Kingman, AZ.">
+                        &copy; 2026 Digital Allies. Based in Kingman, AZ.
                     </p>
+                    <div class="flex flex-wrap gap-4 mt-3 text-xs">
+                        <a href="/privacy" class="text-white/50 hover:text-white transition">Privacy</a>
+                        <a href="/terms" class="text-white/50 hover:text-white transition">Terms</a>
+                        <a href="/cookies" class="text-white/50 hover:text-white transition">Cookies</a>
+                        <a href="/sitemap.html" class="text-white/50 hover:text-white transition">Sitemap</a>
+                    </div>
                 </div>
             </div>
 
@@ -1006,7 +1060,7 @@
                     novalidate>
                     <input type="hidden" name="_subject" value="New inquiry from Digital Allies">
                     <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_next" value="https://digitalallies.net/thank-you">
+                    <input type="hidden" name="_next" value="https://digitalallies.net/">
                     <input type="hidden" name="_template" value="table">
                     <input type="hidden" name="_autoresponse"
                         value="Thanks for reaching out to Digital Allies! I received your message and will reply with next steps shortly. — Anthony">
@@ -1016,7 +1070,7 @@
                     <div>
                         <label for="f-name" class="block text-xs font-bold mb-2 uppercase tracking-widest"
                             data-en="Name" data-es="Nombre">Name</label>
-                        <input id="f-name" type="text" name="name" required aria-required="true"
+                        <input id="f-name" type="text" name="name" required aria-required="true" autocomplete="name"
                             class="w-full structural-border p-3 bg-white text-sm outline-none form-field transition"
                             placeholder="Your name">
                     </div>
@@ -1024,7 +1078,7 @@
                     <div>
                         <label for="f-email" class="block text-xs font-bold mb-2 uppercase tracking-widest"
                             data-en="Email" data-es="Correo Electrónico">Email</label>
-                        <input id="f-email" type="email" name="email" required aria-required="true"
+                        <input id="f-email" type="email" name="email" required aria-required="true" autocomplete="email"
                             class="w-full structural-border p-3 bg-white text-sm outline-none form-field transition"
                             placeholder="your@email.com">
                     </div>
@@ -1044,7 +1098,7 @@
                         Submit Transmission
                     </button>
 
-                    <p class="text-xs text-center text-gray-400 mt-1"
+                    <p class="text-xs text-center text-gray-500 mt-1"
                         data-en="I do not share your details. I use your message to reply. That is it."
                         data-es="No comparto tus datos. Uso tu mensaje para responder. Eso es todo.">
                         I do not share your details. I use your message to reply. That is it.
@@ -1198,7 +1252,7 @@
                 "name": "United States"
             }
         ],
-        "serviceType": ["Web Development", "Automation", "Integrations", "SEO", "AEO", "Tech Support", "ADA Compliance"],
+        "serviceType": ["Website Design", "Graphic Design", "Brand Discovery", "Web Development", "Automation", "Integrations", "SEO", "AEO", "Tech Support", "AI Consulting", "ADA Compliance"],
         "priceRange": "$50-$100+",
         "knowsLanguage": ["en", "es"],
         "slogan": "Technological Solutions for People with Better Things to Do.",
@@ -1256,7 +1310,7 @@
                 "name": "What exactly does Digital Allies do?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "I build, connect, and maintain technology for small businesses and nonprofits. That includes websites, automations, integrations between your apps, SEO/AEO audits, and ongoing tech support. Think of it as a one-person IT department — minus the jargon."
+                    "text": "I design, build, connect, and maintain technology for small businesses and nonprofits. That starts with design — websites, brand identity, menus, signage, pitch decks, and graphic assets — then extends into development, automations, integrations between your apps, SEO/AEO audits, and ongoing tech support. Think of it as a design-forward consultancy that also handles the technical wiring."
                 }
             },
             {
@@ -1264,7 +1318,7 @@
                 "name": "Is the consulting really free?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes. Tech consulting, AI consulting, brand discovery, and AEO/SEO reviews are all free. I do not charge for conversations or clarity. You only pay when I build something. All costs are quoted before work begins."
+                    "text": "Yes. Tech consulting, AI consulting, brand discovery, design consultations, and AEO/SEO reviews are all free. I do not charge for conversations or clarity. You only pay when I design or build something. All costs are quoted before work begins."
                 }
             },
             {
@@ -1289,6 +1343,14 @@
                 "acceptedAnswer": {
                     "@type": "Answer",
                     "text": "AEO stands for Answer Engine Optimization. It is about structuring your content so AI assistants — like ChatGPT, Google AI Overviews, and Siri — can find and recommend your business. SEO gets you on the search results page. AEO gets you into the AI's answer."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do you do design work or just development?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Design comes first. I build websites, brand identities, menus, signage, social graphics, pitch decks — polished print and digital visuals that look like you meant it. Brand discovery sessions are free. Once the visual direction is locked in, I develop the technology to match. Design-forward consultancy that also handles the technical wiring."
                 }
             },
             {
