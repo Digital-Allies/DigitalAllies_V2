@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Allies — Kingman, AZ | Website Platform Video Training </title>
+    <meta name="description"
+        content="Digital Allies Video Training — Quick tutorials to help you manage your website without the jargon. Bilingual instructions for Bookings, eCommerce, and Design.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Lexend+Deca:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bone-white': '#F9F6F0',
+                        'gray-dark': '#2D2D2D',
+                        'primary-blue': '#3A7BD5',
+                        'light-pink': '#FADEEB',
+                        'signal-red': '#C5301A'
+                    },
+                    fontFamily: {
+                        headers: ['"Lexend Deca"', 'sans-serif'],
+                        details: ['"JetBrains Mono"', 'monospace'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Technical Lace Canvas synced with index.html */
+        body {
+            background-color: #F9F6F0;
+            background-image:
+                linear-gradient(rgba(45, 45, 45, 0.07) 0.5px, transparent 0.5px),
+                linear-gradient(90deg, rgba(45, 45, 45, 0.07) 0.5px, transparent 0.5px);
+            background-size: 20px 20px;
+            font-family: 'JetBrains Mono', monospace;
+            color: #2D2D2D;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Lexend Deca', sans-serif; }
+
+        .structural-border { border: 1px solid #2D2D2D; }
+
+        .brand-pulse { animation: brand-pulse 3s ease-in-out infinite; }
+        @keyframes brand-pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.25); }
+        }
+
+        .fab-ring { animation: fab-ring 2.2s ease-out infinite; }
+        @keyframes fab-ring {
+            0% { transform: scale(1); opacity: 0.55; }
+            100% { transform: scale(2.4); opacity: 0; }
+        }
+
+        .lang-active { background-color: #2D2D2D !important; color: #F9F6F0 !important; }
+
+        .video-card {
+            background-color: #FCFAED; /* Pinned note color */
+            transition: transform 0.2s ease;
+        }
+        .video-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            background: #2D2D2D;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .category-pill {
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .category-pill.active {
+            background-color: #C5301A;
+            color: white;
+            border-color: #C5301A;
+        }
+
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0; }
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <div id="lang-announcer" aria-live="polite" aria-atomic="true" class="sr-only"></div>
+
+    <!-- ============================================================
+         NAVIGATION (Synced)
+    ============================================================= -->
+    <nav class="structural-border bg-bone-white sticky top-0 z-50" role="navigation" aria-label="Main navigation">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="flex items-center space-x-3">
+                <div class="relative flex items-center justify-center w-5 h-5">
+                    <div class="absolute w-4 h-4 bg-primary-blue rounded-full opacity-25 fab-ring"></div>
+                    <div class="w-3 h-3 bg-primary-blue rounded-full brand-pulse structural-border"></div>
+                </div>
+                <span class="font-headers font-bold text-xl tracking-wide">Digital Allies</span>
+            </a>
+            <div class="flex items-center space-x-6">
+                <div class="hidden md:flex items-center space-x-5 text-xs font-bold">
+                    <a href="/#departments" class="hover:text-primary-blue transition" data-en="Services" data-es="Servicios">Services</a>
+                    <a href="/#pricing" class="hover:text-primary-blue transition" data-en="Pricing" data-es="Precios">Pricing</a>
+                    <a href="/#contact" class="hover:text-primary-blue transition" data-en="Contact" data-es="Contacto">Contact</a>
+                </div>
+                <div class="flex items-center structural-border overflow-hidden" role="group">
+                    <button id="lang-en" onclick="LC.toggleLanguage('en')" class="px-3 py-1.5 text-xs font-bold transition hover:bg-light-pink lang-active">EN</button>
+                    <div class="w-px h-5 bg-gray-dark"></div>
+                    <button id="lang-es" onclick="LC.toggleLanguage('es')" class="px-3 py-1.5 text-xs font-bold transition hover:bg-light-pink">ES</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============================================================
+         HERO SECTION
+    ============================================================= -->
+    <header class="max-w-5xl mx-auto px-6 pt-24 pb-16 text-center">
+        <p class="text-xs font-bold tracking-widest uppercase mb-6 text-signal-red"
+            data-en="Knowledge Base &middot; Field Manuals"
+            data-es="Base de Conocimientos &middot; Manuales de Campo">
+            Knowledge Base &middot; Field Manuals
+        </p>
+        <h1 class="text-4xl md:text-6xl font-headers font-bold mb-8 leading-tight tracking-tight"
+            data-en="Technological Solutions (Instructions Included)."
+            data-es="Soluciones Tecnológicas (Instrucciones Incluidas).">
+            Technological Solutions (Instructions Included).
+        </h1>
+        <p class="text-base md:text-lg max-w-2xl mx-auto leading-relaxed mb-12"
+            data-en="I build systems that don't require a master's degree to operate. These quick tutorials will help you make simple changes to your website without the jargon jar."
+            data-es="Construyo sistemas que no requieren una maestría para operar. Estos tutoriales rápidos te ayudarán a realizar cambios simples en tu sitio web sin complicaciones.">
+            I build systems that don't require a master's degree to operate. These quick tutorials will help you make simple changes to your website without the jargon jar.
+        </p>
+    </header>
+
+    <!-- ============================================================
+         CATEGORY FILTER
+    ============================================================= -->
+    <section class="max-w-7xl mx-auto px-6 mb-12">
+        <div class="flex flex-wrap gap-3 justify-center">
+            <button class="category-pill active structural-border px-4 py-2 text-xs font-bold uppercase tracking-wider bg-white" data-en="All Modules" data-es="Todos los Módulos">All Modules</button>
+            <button class="category-pill structural-border px-4 py-2 text-xs font-bold uppercase tracking-wider bg-white" data-en="Bookings" data-es="Reservas">Bookings</button>
+            <button class="category-pill structural-border px-4 py-2 text-xs font-bold uppercase tracking-wider bg-white" data-en="Editor Basics" data-es="Básicos del Editor">Editor Basics</button>
+            <button class="category-pill structural-border px-4 py-2 text-xs font-bold uppercase tracking-wider bg-white" data-en="eCommerce" data-es="eCommerce">eCommerce</button>
+            <button class="category-pill structural-border px-4 py-2 text-xs font-bold uppercase tracking-wider bg-white" data-en="Widgets" data-es="Widgets">Widgets</button>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         VIDEO GRID
+    ============================================================= -->
+    <main class="max-w-7xl mx-auto px-6 pb-32">
+        
+        <!-- SECTION: BOOKINGS -->
+        <div class="mb-20">
+            <h3 class="font-headers text-2xl font-bold mb-8 flex items-center gap-3">
+                <i data-lucide="calendar" class="w-6 h-6 text-signal-red"></i>
+                <span data-en="Dept. of Cooperation: Bookings" data-es="Depto. de Cooperación: Reservas">Dept. of Cooperation: Bookings</span>
+            </h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Video Item -->
+                <div class="video-card structural-border p-5">
+                    <div class="video-container structural-border mb-4">
+                        <iframe src="https://player.vimeo.com/video/1166427885" allow="fullscreen"></iframe>
+                    </div>
+                    <h4 class="font-headers font-bold text-sm mb-2" data-en="Add and Configure Bookings" data-es="Agregar y Configurar Reservas">Add and Configure Bookings</h4>
+                    <p class="text-xs leading-relaxed text-gray-600" data-en="How to add and configure the primary Bookings widget." data-es="Cómo agregar y configurar el widget de Reservas principal.">How to add and configure the primary Bookings widget.</p>
+                </div>
+                <!-- Video Item -->
+                <div class="video-card structural-border p-5">
+                    <div class="video-container structural-border mb-4">
+                        <iframe src="https://player.vimeo.com/video/1166426741" allow="fullscreen"></iframe>
+                    </div>
+                    <h4 class="font-headers font-bold text-sm mb-2" data-en="Customize Booking Questions" data-es="Personalizar Preguntas de Reserva">Customize Booking Questions</h4>
+                    <p class="text-xs leading-relaxed text-gray-600" data-en="Gathering the specific data you need from clients." data-es="Recopilación de los datos específicos que necesitas de los clientes.">Gathering the specific data you need from clients.</p>
+                </div>
+                <!-- Video Item -->
+                <div class="video-card structural-border p-5">
+                    <div class="video-container structural-border mb-4">
+                        <iframe src="https://player.vimeo.com/video/1166426148" allow="fullscreen"></iframe>
+                    </div>
+                    <h4 class="font-headers font-bold text-sm mb-2" data-en="Timezone Syncing" data-es="Sincronización de Zona Horaria">Timezone Syncing</h4>
+                    <p class="text-xs leading-relaxed text-gray-600" data-en="Ensure your booking slots match your local timezone." data-es="Asegúrate de que tus espacios de reserva coincidan con tu zona horaria local.">Ensure your booking slots match your local timezone.</p>
+                </div>
+                <!-- Video Item -->
+                <div class="video-card structural-border p-5">
+                    <div class="video-container structural-border mb-4">
+                        <iframe src="https://player.vimeo.com/video/1166132311" allow="fullscreen"></iframe>
+                    </div>
+                    <h4 class="font-headers font-bold text-sm mb-2" data-en="Scheduling Types" data-es="Tipos de Programación">Scheduling Types</h4>
+                    <p class="text-xs leading-relaxed text-gray-600" data-en="Round Robin, Collective, and Fixed Hosts explained." data-es="Explicación de Round Robin, Colectivo y Anfitriones Fijos.">Round Robin, Collective, and Fixed Hosts explained.</p>
+                </div>
+                <!-- Video Item -->
+                <div class="video-card structural-border p-5">
+                    <div class="video-container structural-border mb-4">
+                        <iframe src="https://player.vimeo.com/video/1166132348" allow="fullscreen"></iframe>
+                    </div>
+                    <h4 class="font-headers font-bold text-sm mb-2" data-en="Host Group Sessions" data-es="Organizar Sesiones Grupales">Host Group Sessions</h4>
+                    <p class="text-xs leading-relaxed text-gray-600" data-en="Setting up events for multiple participants." data-es="Configuración de eventos para múltiples participantes.">Setting up events for multiple participants.</p>
+                </div>
+                <!-- Video Item -->
+                <div class="video-card structural-border p-5">
+                    <div class="video-container structural-border mb-4">
+                        <iframe src="https://player.vimeo.com/video/1166132285" allow="fullscreen"></iframe>
+                    </div>
+                    <h4 class="font-headers font-bold text-sm mb-2" data-en="Require Confirmation" data-es="Requerir Confirmación">Require Confirmation</h4>
+                    <p class="text-xs leading-relaxed text-gray-600" data-en="Manually approve bookings before they are finalized." data-es="Aprobar manualmente las reservas antes de que se finalicen.">Manually approve bookings before they are finalized.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION: EDITOR BASICS -->
+        <div class="mb-20">
+            <h3 class="font-headers text-2xl font-bold mb-8 flex items-center gap-3">
+                <i data-lucide="layout" class="w-6 h-6 text-signal-red"></i>
+                <span data-en="The Design Bureau: Basic Ops" data-es="El Buró de Diseño: Ops Básicas">The Design Bureau: Basic Ops</span>
+            </h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Video Item -->
+                <div class="video-card structural-border p-5">
+                    <div class="video-container structural-border mb-4">
+                        <iframe src="https://player.vimeo.com/video/1166132263" allow="fullscreen"></iframe>
+                    </div>
+                    <h4 class="font-headers font-bold text-sm mb-2" data-en="Calendar Event Names" data-es="Nombres de Eventos del Calendario">Calendar Event Names</h4>
+                    <p class="text-xs leading-relaxed text-gray-600" data-en="Customize how your events appear on the calendar." data-es="Personaliza cómo aparecen tus eventos en el calendario.">Customize how your events appear on the calendar.</p>
+                </div>
+                <!-- Video Item -->
+                <div class="video-card structural-border p-5">
+                    <div class="video-container structural-border mb-4">
+                        <iframe src="https://player.vimeo.com/video/1138710958" allow="fullscreen"></iframe>
+                    </div>
+                    <h4 class="font-headers font-bold text-sm mb-2" data-en="Editor 2.0 Overview" data-es="Resumen del Editor 2.0">Editor 2.0 Overview</h4>
+                    <p class="text-xs leading-relaxed text-gray-600" data-en="Navigating the modern website building interface." data-es="Navegando por la interfaz moderna de construcción de sitios web.">Navigating the modern website building interface.</p>
+                </div>
+                <!-- Video Item -->
+                <div class="video-card structural-border p-5">
+                    <div class="video-container structural-border mb-4">
+                        <iframe src="https://player.vimeo.com/video/1138592684" allow="fullscreen"></iframe>
+                    </div>
+                    <h4 class="font-headers font-bold text-sm mb-2" data-en="Page Management" data-es="Gestión de Páginas">Page Management</h4>
+                    <p class="text-xs leading-relaxed text-gray-600" data-en="How to add, remove, and hide pages from your menu." data-es="Cómo agregar, eliminar y ocultar páginas de tu menú.">How to add, remove, and hide pages from your menu.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION: ADDITIONAL ARCHIVE (THE REST) -->
+        <div class="mb-20">
+            <h3 class="font-headers text-2xl font-bold mb-8 flex items-center gap-3">
+                <i data-lucide="archive" class="w-6 h-6 text-primary-blue"></i>
+                <span data-en="The Tactical Archive" data-es="El Archivo Táctico">The Tactical Archive</span>
+            </h3>
+            <p class="text-xs mb-8 italic" data-en="Below are more specialized tutorials from our vault." data-es="A continuación se presentan tutoriales más especializados de nuestra bóveda.">Below are more specialized tutorials from our vault.</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                <!-- Generic Item Loop for "The Rest" -->
+                <script>
+                    const extraVideos = [
+                        '1166132372', '1166132361', '1166132330', '1166132251', '1166132235', 
+                        '1166132219', '1166132189', '1166132161', '1166132126', '1165824245',
+                        '1165824219', '1165824209', '1165824198', '1164464066', '1138290003',
+                        '1138286579', '1138283006', '1138277739', '1138265689', '1138258398'
+                    ];
+                    extraVideos.forEach(id => {
+                        document.write(`
+                            <div class="structural-border bg-white p-2">
+                                <div class="video-container structural-border mb-2">
+                                    <iframe src="https://player.vimeo.com/video/${id}" allow="fullscreen"></iframe>
+                                </div>
+                                <p class="text-[10px] font-bold uppercase truncate">Module ${id}</p>
+                            </div>
+                        `);
+                    });
+                </script>
+            </div>
+            <div class="mt-8 text-center">
+                <button class="px-8 py-3 bg-bone-white text-gray-dark font-bold structural-border hover:bg-light-pink transition text-sm"
+                    data-en="[ Load Complete Archive ]" data-es="[ Cargar Archivo Completo ]">
+                    [ Load Complete Archive ]
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- ============================================================
+         FOOTER (Synced)
+    ============================================================= -->
+    <footer id="contact" class="bg-gray-dark text-white py-24 px-6">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16">
+            <div>
+                <a href="/" class="flex items-center space-x-3 mb-10">
+                    <div class="relative flex items-center justify-center w-5 h-5">
+                        <div class="absolute w-4 h-4 bg-white rounded-full opacity-20 fab-ring"></div>
+                        <div class="w-3 h-3 bg-white rounded-full brand-pulse" style="border: 1px solid rgba(255,255,255,0.4);"></div>
+                    </div>
+                    <span class="font-headers font-bold text-2xl tracking-wide text-white">Digital Allies</span>
+                </a>
+                <h2 class="font-headers text-3xl font-bold mb-5" data-en="The Command Center" data-es="El Centro de Mando">The Command Center</h2>
+                <p class="text-xs border-l-2 border-signal-red pl-4 text-white/65 leading-relaxed"
+                    data-en="I am historically easy to reach. I live in Kingman. If you call, I answer. It is a very avant-garde concept called &lsquo;Doing My Job.&rsquo;"
+                    data-es="Soy históricamente fácil de contactar. Vivo en Kingman. Si llamas, contesto. Es un concepto muy vanguardista llamado &lsquo;Hacer mi trabajo.&rsquo;">
+                    I am historically easy to reach. I live in Kingman. If you call, I answer. It is a very avant-garde concept called &lsquo;Doing My Job.&rsquo;
+                </p>
+                <div class="mt-12 pt-6 border-t border-white/10 text-xs text-white/50">
+                    <p data-en="&copy; 2026 Digital Allies. Based in Kingman, AZ." data-es="&copy; 2026 Digital Allies. Con sede en Kingman, AZ.">
+                        &copy; 2026 Digital Allies. Based in Kingman, AZ.
+                    </p>
+                </div>
+            </div>
+            <div class="bg-bone-white p-8 structural-border text-gray-dark self-start">
+                <h3 class="font-headers font-bold text-xl mb-6" data-en="Stuck on a step?" data-es="¿Atascado en un paso?">Stuck on a step?</h3>
+                <p class="text-sm mb-6" data-en="Call or text me directly. I don't use ticket queues." data-es="Llámame o envíame un mensaje directo. No uso colas de tickets.">Call or text me directly. I don't use ticket queues.</p>
+                <a href="tel:9282285769" class="block w-full bg-signal-red text-white font-headers font-bold py-3 hover:bg-gray-dark transition structural-border text-center text-sm tracking-wide">
+                    (928) 228-5769
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FAB -->
+    <a href="/#contact" class="fixed bottom-6 right-6 z-50 flex items-center gap-3 bg-bone-white structural-border py-2.5 px-4 rounded-full shadow-md hover:bg-light-pink transition">
+        <span class="text-xs font-bold" data-en="Need a strategic ally?" data-es="¿Necesitas un aliado?">Need a strategic ally?</span>
+        <div class="relative flex items-center justify-center w-4 h-4 flex-shrink-0">
+            <div class="absolute w-4 h-4 bg-signal-red rounded-full opacity-30 fab-ring"></div>
+            <div class="w-2.5 h-2.5 bg-signal-red rounded-full brand-pulse"></div>
+        </div>
+    </a>
+
+    <!-- LANGUAGE CONTROLLER -->
+    <script>
+        class LanguageController {
+            constructor() {
+                this.currentLang = localStorage.getItem('da-language') || 'en';
+                this.init();
+            }
+
+            init() {
+                this.applyLanguage(this.currentLang, false);
+            }
+
+            toggleLanguage(lang) {
+                if (lang === this.currentLang) return;
+                this.currentLang = lang;
+                localStorage.setItem('da-language', lang);
+                this.applyLanguage(lang, true);
+            }
+
+            applyLanguage(lang, announce) {
+                this.updateContent(lang);
+                this.updateButtons(lang);
+                document.documentElement.lang = lang;
+                if (announce) this.announceLanguageChange(lang);
+            }
+
+            updateContent(lang) {
+                document.querySelectorAll('[data-en][data-es]').forEach(el => {
+                    const val = el.getAttribute('data-' + lang);
+                    if (!val) return;
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.placeholder = val;
+                    } else {
+                        const preservedChildren = [];
+                        el.querySelectorAll('[data-lucide], .transition-transform').forEach(child => {
+                            preservedChildren.push(child.cloneNode(true));
+                        });
+                        el.innerHTML = val;
+                        preservedChildren.forEach(child => {
+                            if (child.classList.contains('transition-transform')) {
+                                el.appendChild(child);
+                            } else {
+                                el.insertBefore(child, el.firstChild);
+                            }
+                        });
+                    }
+                });
+                if (typeof lucide !== 'undefined') lucide.createIcons();
+            }
+
+            updateButtons(lang) {
+                ['en', 'es'].forEach(l => {
+                    const btn = document.getElementById('lang-' + l);
+                    if (!btn) return;
+                    const active = l === lang;
+                    btn.classList.toggle('lang-active', active);
+                    btn.setAttribute('aria-pressed', String(active));
+                });
+            }
+
+            announceLanguageChange(lang) {
+                const msg = lang === 'es' ? 'Idioma cambiado a español' : 'Language changed to English';
+                const announcer = document.getElementById('lang-announcer');
+                if (announcer) {
+                    announcer.textContent = '';
+                    setTimeout(() => { announcer.textContent = msg; }, 60);
+                }
+            }
+        }
+
+        const LC = new LanguageController();
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+    </script>
+
+</body>
+</html>
